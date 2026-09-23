@@ -1,0 +1,86 @@
+.marquee {
+  margin-top: 40px;
+  padding: 20px 0 28px;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  background: radial-gradient(ellipse at 50% 100%, #f5e5c733, transparent 70%);
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding-inline: 2px;
+  margin-bottom: 19px;
+}
+.heading p {
+  color: #796342;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  min-width: 92px;
+  border: 1px solid #d9ccb4;
+  border-radius: 100px;
+  background: #ffffff80;
+  color: #665438;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.control:hover { background: #fff; border-color: #a88247; }
+.viewport { overflow: hidden; mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent); }
+.track {
+  display: flex;
+  width: max-content;
+  animation: travel 36s linear infinite;
+}
+/* Equal, gapless copies keep the loop seamless at every viewport width. */
+.group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-around;
+  min-width: 100vw;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.group li { display: flex; align-items: center; gap: 38px; padding-right: 38px; }
+.group li > span {
+  white-space: nowrap;
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(25px, 2.5vw, 36px);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.035em;
+}
+.group li > span { color: #596052; }
+.spark { width: 18px; height: 18px; flex-shrink: 0; color: #b58b48; }
+.marquee[data-paused="true"] .track { animation-play-state: paused; }
+@media (hover: hover) {
+  .viewport:hover .track { animation-play-state: paused; }
+}
+@keyframes travel { to { transform: translateX(-50%); } }
+@media (max-width: 600px) {
+  .marquee { padding-block: 18px 27px; }
+  .heading { margin-bottom: 15px; }
+  .heading p { max-width: 220px; font-size: 9px; letter-spacing: 0.09em; }
+  .group li { gap: 24px; padding-right: 24px; }
+  .spark { width: 20px; height: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .control, .group[aria-hidden="true"] { display: none; }
+  .viewport { mask-image: none; }
+  .track { width: 100%; animation: none; }
+  .group { min-width: 0; width: 100%; flex-wrap: wrap; gap: 12px 24px; justify-content: flex-start; padding-inline: 5%; }
+  .group li { padding: 0; gap: 16px; }
+  .group li > span { white-space: normal; font-size: clamp(23px, 3vw, 38px); }
+}
