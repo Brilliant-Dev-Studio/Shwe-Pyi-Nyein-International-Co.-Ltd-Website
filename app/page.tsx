@@ -277,14 +277,40 @@ export default function Home() {
               </a>
             </div>
             <figure className="corporate-office">
-              <div className="corporate-office-image" data-parallax>
-                <Image
-                  src="/spn_office_two.jpg"
-                  alt="A welcoming space at the SPN office"
-                  fill
-                  preload
-                  sizes="(max-width: 800px) 90vw, 45vw"
-                />
+              <div className="corporate-office-collage" data-parallax>
+                <div className="corporate-office-image">
+                  <Image
+                    src="/spn_office_two.jpg"
+                    alt="A welcoming space at the SPN office"
+                    fill
+                    preload
+                    sizes="(max-width: 800px) 45vw, 23vw"
+                  />
+                </div>
+                <div className="corporate-office-image">
+                  <Image
+                    src="/home1.jpg"
+                    alt="A welcoming space at the SPN office"
+                    fill
+                    sizes="(max-width: 800px) 45vw, 23vw"
+                  />
+                </div>
+                <div className="corporate-office-image">
+                  <Image
+                    src="/home2.jpg"
+                    alt="Staff at the Shwe Pyi Nyein International office"
+                    fill
+                    sizes="(max-width: 800px) 45vw, 23vw"
+                  />
+                </div>
+                <div className="corporate-office-image">
+                  <Image
+                    src="/home3.jpg"
+                    alt="Inside the Shwe Pyi Nyein International office"
+                    fill
+                    sizes="(max-width: 800px) 45vw, 23vw"
+                  />
+                </div>
               </div>
               <figcaption>
                 <span>Shwe Pyi Nyein International</span>

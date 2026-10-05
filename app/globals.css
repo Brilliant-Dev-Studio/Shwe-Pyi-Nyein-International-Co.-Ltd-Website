@@ -2187,9 +2187,15 @@ h2 em {
   background: white;
   animation-delay: 0.15s;
 }
+.corporate-office-collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 6px;
+  height: 405px;
+}
 .corporate-office-image {
   position: relative;
-  height: 405px;
 }
 .corporate-office-image img {
   object-position: center;
@@ -2254,7 +2260,7 @@ h2 em {
   .corporate-hero-main {
     gap: 35px;
   }
-  .corporate-office-image {
+  .corporate-office-collage {
     height: 390px;
   }
   .corporate-actions {
@@ -2281,7 +2287,7 @@ h2 em {
   .corporate-description {
     max-width: 580px;
   }
-  .corporate-office-image {
+  .corporate-office-collage {
     height: 370px;
   }
   .corporate-assurance {
@@ -2318,7 +2324,7 @@ h2 em {
   .corporate-phone strong {
     font-size: 15px;
   }
-  .corporate-office-image {
+  .corporate-office-collage {
     height: 280px;
   }
   .corporate-office figcaption {
