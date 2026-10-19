@@ -49,6 +49,46 @@ const countries = [
     label: "ask about current availability",
   },
 ];
+const heroFeatureImages = [
+  {
+    src: "/viber_image_2026-10-15_10-55-05-433.jpg",
+    alt: "Workers departing for overseas placement with Shwe Pyi Nyein International",
+    position: "center 55%",
+    preload: true,
+  },
+  {
+    src: "/home1.jpg",
+    alt: "MOU group with Shwe Pyi Nyein International at the border",
+    position: "center 42%",
+  },
+  {
+    src: "/home2.jpg",
+    alt: "Workers supported by Shwe Pyi Nyein International for overseas employment",
+    position: "center 48%",
+  },
+  {
+    src: "/home3.jpg",
+    alt: "Shwe Pyi Nyein International MOU deployment group",
+    position: "center 45%",
+  },
+];
+const aboutOfficeImages = [
+  {
+    src: "/viber_image_2026-10-15_10-57-25-389.jpg",
+    alt: "Executive office at Shwe Pyi Nyein International",
+    position: "center 38%",
+  },
+  {
+    src: "/viber_image_2026-10-15_10-57-25-417.jpg",
+    alt: "Meeting room at Shwe Pyi Nyein International",
+    position: "center 50%",
+  },
+  {
+    src: "/viber_image_2026-10-15_11-02-57-389.jpg",
+    alt: "Open workspace at Shwe Pyi Nyein International",
+    position: "center 42%",
+  },
+];
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
     <svg
@@ -278,43 +318,23 @@ export default function Home() {
             </div>
             <figure className="corporate-office">
               <div className="corporate-office-collage" data-parallax>
-                <div className="corporate-office-image">
-                  <Image
-                    src="/spn_office_two.jpg"
-                    alt="A welcoming space at the SPN office"
-                    fill
-                    preload
-                    sizes="(max-width: 800px) 45vw, 23vw"
-                  />
-                </div>
-                <div className="corporate-office-image">
-                  <Image
-                    src="/home1.jpg"
-                    alt="A welcoming space at the SPN office"
-                    fill
-                    sizes="(max-width: 800px) 45vw, 23vw"
-                  />
-                </div>
-                <div className="corporate-office-image">
-                  <Image
-                    src="/home2.jpg"
-                    alt="Staff at the Shwe Pyi Nyein International office"
-                    fill
-                    sizes="(max-width: 800px) 45vw, 23vw"
-                  />
-                </div>
-                <div className="corporate-office-image">
-                  <Image
-                    src="/home3.jpg"
-                    alt="Inside the Shwe Pyi Nyein International office"
-                    fill
-                    sizes="(max-width: 800px) 45vw, 23vw"
-                  />
-                </div>
+                {heroFeatureImages.map((photo) => (
+                  <div className="corporate-office-image" key={photo.src}>
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      className="corporate-office-photo"
+                      preload={photo.preload === true}
+                      sizes="(max-width: 800px) 45vw, 23vw"
+                      style={{ objectPosition: photo.position }}
+                    />
+                  </div>
+                ))}
               </div>
               <figcaption>
                 <span>Shwe Pyi Nyein International</span>
-                <span>Our office in Myanmar</span>
+                <span>Overseas employment &amp; recruitment</span>
               </figcaption>
             </figure>
           </div>
@@ -322,7 +342,7 @@ export default function Home() {
         <CompanyStats ready={!introVisible} />
         <section id="about" className="section about-section">
           <div className="section-kicker reveal">
-            <span>About SPN</span>
+            <span>About Shwe Pyi Nyein</span>
           </div>
           <div className="about-grid">
             <div className="about-heading reveal">
@@ -331,14 +351,25 @@ export default function Home() {
                 <br />
                 <em>since 2000.</em>
               </h2>
-              <div className="about-photo" data-parallax>
-                <Image
-                  src="/spn_office_one.jpg"
-                  alt="Reception and working area at the Shwe Pyi Nyein International office"
-                  fill
-                  sizes="(max-width: 650px) 100vw, 40vw"
-                />
-                <span>SHWE PYI NYEIN INTERNATIONAL OFFICE</span>
+              <div
+                className="about-bento"
+                aria-label="Shwe Pyi Nyein International office photos"
+              >
+                {aboutOfficeImages.map((photo, index) => (
+                  <div
+                    className={`about-bento-cell about-bento-cell--${index + 1}`}
+                    data-parallax
+                    key={photo.src}
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(max-width: 800px) 33vw, 16vw"
+                      style={{ objectPosition: photo.position }}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
             <div className="about-copy reveal">
